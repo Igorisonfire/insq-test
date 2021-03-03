@@ -10,12 +10,10 @@ export function EmployeesRowHead(props: IProps) {
     const dispatch = useDispatch()
 
     const sortById = () => {
-        console.log('sortById')
         dispatch(sortEmployeesById())
     }
 
     const sortByName = () => {
-        console.log('sortByName')
         dispatch(sortEmployeesByName())
     }
 

@@ -13,8 +13,6 @@ export function Employees() {
         dispatch(getEmployees())
     }, [dispatch])
 
-    console.log('employeesState', employeesState)
-
     if (!employees.length) return null
 
     return (
