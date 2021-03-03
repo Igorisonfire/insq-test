@@ -1,9 +1,9 @@
 import React from 'react';
 import './index.scss'
 import IEmployees from '../../interfaces/employees.interface'
+import userImg from '../../images/user.svg'
 
 interface IProps extends IEmployees.Employee{
-
 }
 
 export function EmployeesRow(props: IProps) {
@@ -16,16 +16,16 @@ export function EmployeesRow(props: IProps) {
                 <p>{id}</p>
             </div>
             <div className={'profile_image'}>
-                <img src={profile_image} alt='avatar'/>
+                <img src={profile_image.length ? profile_image : userImg} alt='avatar'/>
             </div>
             <div className={'employee_name'}>
-                <p>{employee_name}</p>
+                <h3>{employee_name}</h3>
             </div>
             <div className={'employee_age'}>
                 <p>{employee_age}</p>
             </div>
             <div className={'employee_salary'}>
-                <p>{employee_salary}</p>
+                <h4>{employee_salary}</h4>
             </div>
         </div>
     );

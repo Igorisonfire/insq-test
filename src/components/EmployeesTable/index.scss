@@ -1,0 +1,74 @@
+@import "../../styles/colors";
+
+.employees-table{
+  display: flex;
+  flex-direction: column;
+  margin: 48px 0;
+
+  .employee-row {
+    display: flex;
+    border-bottom: 1px solid $dark-600;
+    border-right: 1px solid $dark-600;
+    border-left: 1px solid $dark-600;
+
+    &>*:not(:last-child){
+      border-right: 1px solid $dark-600;
+    }
+
+    &>div{
+      display: flex;
+      align-items: center;
+      min-height: 100%;
+      padding: 6px 12px;
+    }
+
+    .id{
+      width: 5%;
+      min-width: max-content;
+      justify-content: center;
+    }
+
+    .profile_image{
+      width: 10%;
+      min-width: 80px;
+      justify-content: center;
+      &>img{
+        width: 50%;
+      }
+    }
+
+    .employee_name{
+      width: 60%;
+      min-width: max-content;
+    }
+
+    .employee_age{
+      width: 10%;
+      min-width: max-content;
+      justify-content: center;
+    }
+
+    .employee_salary{
+      width: 15%;
+      justify-content: flex-end;
+    }
+
+    &.head-row {
+      border: 1px solid $dark-600;
+      background-color: $dark-100;
+
+      .id, .employee_name{
+        cursor: pointer;
+        border-bottom: 1px solid $dark;
+
+        &:hover{
+          background-color: $dark-200;
+        }
+
+        &:active{
+          background-color: white;
+        }
+      }
+    }
+  }
+}
