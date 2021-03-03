@@ -63,6 +63,7 @@
     &.head-row {
       border: 1px solid $dark-600;
       background-color: $dark-100;
+      border-radius: 0;
 
       .id, .employee_name{
         cursor: pointer;
