@@ -1,15 +1,22 @@
 @import "../../styles/colors";
+@import "../../styles/shadows";
 
 .employees-table{
   display: flex;
   flex-direction: column;
   margin: 48px 0;
+  border-radius: 6px;
+
+  &>*:not(:last-child){
+    margin-bottom: 3px;
+  }
 
   .employee-row {
     display: flex;
-    border-bottom: 1px solid $dark-600;
-    border-right: 1px solid $dark-600;
-    border-left: 1px solid $dark-600;
+    border: 1px solid $dark-600;
+    background-color: #ffffff;
+    border-radius: 6px;
+    @include box-shadow(4);
 
     &>*:not(:last-child){
       border-right: 1px solid $dark-600;
