@@ -6,15 +6,23 @@ interface IProps{
 
 export function EmployeesRowHead(props: IProps) {
 
+    const sortById = () => {
+        console.log('sortById')
+    }
+
+    const sortByName = () => {
+        console.log('sortByName')
+    }
+
     return (
         <div className={'employee-row head-row'}>
-            <div className={'id'}>
+            <div className={'id'} onClick={sortById}>
                 <p className={'medium'}>ID</p>
             </div>
             <div className={'profile_image'}>
                 <p className={'medium'}>Avatar</p>
             </div>
-            <div className={'employee_name'}>
+            <div className={'employee_name'} onClick={sortByName}>
                 <p className={'medium'}>Name</p>
             </div>
             <div className={'employee_age'}>
