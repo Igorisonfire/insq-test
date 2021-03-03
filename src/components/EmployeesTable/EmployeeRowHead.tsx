@@ -1,17 +1,22 @@
 import React from 'react';
 import './index.scss'
+import {useDispatch} from 'react-redux'
+import {sortEmployeesByName, sortEmployeesById} from '../../features/employees/employeesSlice'
 
 interface IProps{
 }
 
 export function EmployeesRowHead(props: IProps) {
+    const dispatch = useDispatch()
 
     const sortById = () => {
         console.log('sortById')
+        dispatch(sortEmployeesById())
     }
 
     const sortByName = () => {
         console.log('sortByName')
+        dispatch(sortEmployeesByName())
     }
 
     return (

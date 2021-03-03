@@ -5,10 +5,14 @@ import IEmployees from '../../interfaces/employees.interface'
 
 interface IEmployeesState {
   employees: IEmployees.Employee[];
+  idToggle: boolean
+  nameToggle: boolean
 }
 
 const initialState: IEmployeesState = {
   employees: [],
+  idToggle: true,
+  nameToggle: true
 };
 
 export const employeesSlice = createSlice({
@@ -23,10 +27,50 @@ export const employeesSlice = createSlice({
         employees
       }
     },
+    sortEmployeesById: (state: IEmployeesState) => {
+      let employees = state.employees.slice()
+      let toggle = state.idToggle
+
+      employees.sort( (a:IEmployees.Employee, b: IEmployees.Employee) => {
+        if (Number(a.id) > Number(b.id)) {
+          return -1;
+        }
+        if (Number(a.id) < Number(b.id)) {
+          return 1;
+        }
+        return 0;
+      });
+
+      return {
+        ...state,
+        employees: toggle ? employees : employees.reverse(),
+        idToggle: !toggle
+      }
+    },
+    sortEmployeesByName: (state: IEmployeesState) => {
+      let employees = state.employees.slice()
+      let toggle = state.nameToggle
+
+      employees.sort( (a:IEmployees.Employee, b: IEmployees.Employee) => {
+        if (a.employee_name > b.employee_name) {
+          return 1;
+        }
+        if (a.employee_name < b.employee_name) {
+          return -1;
+        }
+        return 0;
+      });
+
+      return {
+        ...state,
+        employees: toggle ? employees : employees.reverse(),
+        nameToggle: !toggle
+      }
+    },
   },
 });
 
-export const { setEmployees } = employeesSlice.actions;
+export const { setEmployees, sortEmployeesById, sortEmployeesByName } = employeesSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
